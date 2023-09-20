@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PH Tube</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.5/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        .font_fam{
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+        theme: {
+            extend: {
+            colors: {
+                clifford: '#da373d',
+                primary:'#FF1F3D;'
+            }
+            }
+        }
+        }
+    </script>
+</head>
+<body class="font_fam">
+    <header >
+        <nav class="flex justify-between border-b-2 py-6 mx-14">
+            <img src="./images/Logo.png" alt="">
+            <button class="btn text-lg font-medium">Sort by view</button>
+            <button class="btn text-lg font-medium text-white bg-primary">Blog</button>
+        </nav>
+    </header>
+
+    <main class="mx-14 my-8">
+        <div class="text-center" id="button">
+        <button class="btn text-lg font-medium">Sort by view</button>
+        <button class="btn text-lg font-medium">Sort by view</button>
+        <button class="btn text-lg font-medium">Sort by view</button>
+        <button class="btn text-lg font-medium">Sort by view</button>
+        </div>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>
