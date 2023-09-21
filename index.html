@@ -33,20 +33,37 @@
     <header >
         <nav class="flex justify-between border-b-2 py-6 mx-14">
             <img src="./images/Logo.png" alt="">
-            <button class="btn text-lg font-medium">Sort by view</button>
-            <button class="btn text-lg font-medium text-white bg-primary">Blog</button>
+            <button onclick="sort_view()" class="btn text-lg font-medium">Sort by view</button>
+            <button class="btn text-lg font-medium text-white bg-primary hover:text-blue-900 hover:bg-transparent hover:border-2 hover:border-blue-900">Blog</button>
         </nav>
     </header>
 
     <main class="mx-14 my-8">
-        <div class="text-center" id="button">
-        <button class="btn text-lg font-medium">Sort by view</button>
-        <button class="btn text-lg font-medium">Sort by view</button>
-        <button class="btn text-lg font-medium">Sort by view</button>
-        <button class="btn text-lg font-medium">Sort by view</button>
+        <div class="flex justify-center flex-col lg:flex-row gap-7 " id="button">
+        
         </div>
-    </main>
+        
+            <div class="flex justify-center items-center my-auto h-[55vh] hidden " id="spin">
+                <span class="loading loading-bars loading-xs"></span>
+                <span class="loading loading-bars loading-sm"></span>
+                <span class="loading loading-bars loading-md"></span>
+                <span class="loading loading-bars loading-lg"></span>
+               </div>
+        
+        
 
+        <div id="card_cont" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-12">
+            
+              
+              </div>
+    
+        </div>
+        
+        <!-- <button onclick="card_load(1003)">gth</button>
+        <button onclick="card_load('1003')">ggfrgtrfth</button> -->
+       
+    </main>
+    <!-- // <img src=${card.authors[0].profile_picture} alt="author" > -->
     <script src="index.js"></script>
 </body>
 </html>
