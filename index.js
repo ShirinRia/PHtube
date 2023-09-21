@@ -1,5 +1,5 @@
 const card_container=document.getElementById("card_cont");
-
+let test;
 const main_load=async()=>{
     const res=await fetch(`https://openapi.programming-hero.com/api/videos/categories`)
     const category_data=await res.json();
@@ -7,8 +7,15 @@ const main_load=async()=>{
     display_button(categories);
     // console.log(categories);
     // console.log(categories[0].category_id);
+    const alldata=await fetch(`https://openapi.programming-hero.com/api/videos/category/1000`)
+    const card_data=await alldata.json();
+    const cards=card_data.data;
+    console.log(cards);
+    card_container.textContent='';
+    test=1000;
+    add_card(cards,false);
 }
-let test;
+
 const display_button=(categories)=>{
 // cat =categories;
 // console.log(categories);
@@ -52,7 +59,7 @@ add_card(cards,true);
 
 }
 
-
+let original, hour, rest_sec1, min, sec;
 const add_card=(cards,issort)=>
 {
     const len=cards.length;
@@ -65,10 +72,18 @@ const add_card=(cards,issort)=>
             
             card=>{
                 console.log(card);
+                original=parseInt(card.others.posted_date);
+                hour=parseInt(original/3600);
+                rest_sec1=parseInt(original-(hour*3600));
+                min=parseInt(rest_sec1/60);
+                sec=parseInt(rest_sec1-(min*60));
+                
                 const new_card=document.createElement('div');
-            new_card.innerHTML=
-            `
-            <figure><img src=${card.thumbnail} alt="videos!" class="h-[200px] rounded-lg"/></figure>
+
+                if(card.authors[0].verified){
+                    new_card.innerHTML=`
+                    <figure><img src=${card.thumbnail} alt="videos!" class="h-[200px] rounded-lg"/></figure>
+                    
                     <div class="card-body px-1">
                     <div class="flex gap-3">
     
@@ -80,11 +95,46 @@ const add_card=(cards,issort)=>
                   </div>
                         
                   <div>
-    
                         <h2 class="card-title">${card.title}</h2> 
-                        <p>${card.authors[0].profile_name}</p>
+                        <div class="flex ">
+                        <p class="flex-grow-0 mr-4">
+                            ${card.authors[0].profile_name} 
+                           
+                        </p>
+                        <img src="./images/check.png" width="20" class="rounded-full text-base"/> 
+                        </div>
                         <p>${card.others.views} views</p>
-                    
+                    </div>
+    
+                    </div>
+                        
+                      </div>
+                
+                `
+                }
+                else{
+                    new_card.innerHTML= `
+                     <figure><img src=${card.thumbnail} alt="videos!" class="h-[200px] rounded-lg"/></figure>
+            
+                    <div class="card-body px-1">
+                    <div class="flex gap-3">
+    
+                    <div class="avatar">
+                    <div class="w-10 h-10 rounded-full">
+                      <img src=${card.authors[0].profile_picture}/>
+                    </div>
+    
+                  </div>
+                        
+                  <div>
+                        <h2 class="card-title">${card.title}</h2> 
+                        
+                        <p>
+                            ${card.authors[0].profile_name} 
+                           
+                        </p>
+                       
+                        <p>${card.others.views} views</p>
                     </div>
     
                     </div>
@@ -92,7 +142,28 @@ const add_card=(cards,issort)=>
                       </div>
                 
             `
-            new_card.classList.add("card", "w-72");
+            
+                }
+                
+                // <div id="time" class="absolute right-3 top-36 bg-black  text-white p-2 rounded-lg">
+                
+                // <p>
+                //     ${hour} hrs ${min} min ${sec} sec ago
+                // </p> 
+
+                // </div>
+            if(card.others.posted_date){
+            const divv=document.createElement('div');
+            divv.innerHTML=`
+            <p>
+                     ${hour} hrs ${min} min ${sec} sec ago
+                 </p> 
+
+            `
+            divv.classList.add("absolute", "right-3","top-36", "bg-black",  "text-white", "p-2", "rounded-lg");
+            new_card.appendChild(divv);
+            }
+            new_card.classList.add("card", "w-72","relative");
             card_container.classList.add( "grid", "grid-cols-1", "md:grid-cols-2" ,"lg:grid-cols-4" );
             card_container.classList.remove( "h-[50vh]","flex","flex-col","items-center");
              card_container.appendChild(new_card);

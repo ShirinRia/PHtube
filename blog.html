@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Concept</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.5/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        .font_fam{
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+        theme: {
+            extend: {
+            colors: {
+                clifford: '#da373d',
+                primary:'#FF1F3D;'
+            }
+            }
+        }
+        }
+    </script>
+</head>
+<body class="font_fam">
+   
+   <main>
+    <section class="py-8 px-8">
+
+        <h1 class="font-extrabold text-4xl">
+            var, let and const keywords in JavaScript
+        </h1>
+
+        <p>
+            In JavaScript, users can declare a variable using 3 keywords that are var, let, and const. In this article, we will see the differences between the var, let, and const keywords. We will discuss the scope about each keyword.
+        </p>
+        <div id="var">
+
+        <h5>
+            <span class="font-bold"> var:
+            </span> 
+            The var is the oldest keyword to declare a variable in JavaScript.
+        </h5> 
+        
+        <h5>
+           <span class="font-bold">
+            Scope:
+           </span> 
+
+            Global scoped or function scoped. The scope of the var keyword is the global or function scope. It means variables defined outside the function can be accessed globally, and variables defined inside a particular function can be accessed within the function. 
+        </h5>
+       
+        <h5>
+            <span class="font-bold">
+                Example 1:
+            </span>
+             Variable <strong>'a'</strong> is declared globally. So, the scope of the variable <strong>'a'</strong> is global, and it can be accessible everywhere in the program. 
+        </h5>
+        <code>
+            var a = 10 <br>
+            function f() { <br>
+                console.log(a) <br>
+            }<br>
+            f();<br>
+            console.log(a);<br>
+
+        </code>
+
+
+        <h5>
+            <span class="font-bold">
+                Example 2:
+            </span>
+            
+             The variable <strong>'a'</strong> is declared inside the function. If the user tries to access it outside the function, it will display the error. Users can declare the 2 variables with the same name using the var keyword. Also, the user can reassign the value into the var variable. 
+        </h5>
+        <code>
+            function f() { <br>
+
+                // It can be accessible any where within this function <br>
+                var a = 10; <br>
+                console.log(a)<br>
+            }<br>
+            f();<br>
+            
+            // A cannot be accessible outside of function<br>
+            console.log(a);<br>
+            
+
+        </code>
+ 
+
+        <h5>
+            <span class="font-bold">
+                Example 3:
+            </span>
+            
+            If users use the var variable before the declaration, it initializes with the undefined value. 
+        </h5>
+        <code>
+          
+            console.log(a);<br>
+            let a = 10;<br>
+
+        </code>
+    </div>
+
+
+    <div id="let">
+        <h5>
+            <span class="font-bold"> let:
+            </span> 
+            The let keyword is an improved version of the var keyword. 
+        </h5> 
+        
+        <h5>
+           <span class="font-bold">
+            Scope:
+           </span> 
+
+           The scope of a let variable is only block scoped. It can not be accessible outside the particular block ({block}). Let's see the below example.
+        </h5>
+       
+        <h5>
+            <span class="font-bold">
+                Example 1:
+            </span>
+             Variable <strong>'a'</strong> is declared globally. So, the scope of the variable <strong>'a'</strong> is global, and it can be accessible everywhere in the program. 
+        </h5>
+        <code>
+            var a = 10 <br>
+            function f() { <br>
+                console.log(a) <br>
+            }<br>
+            f();<br>
+            console.log(a);<br>
+
+        </code>
+
+
+        <h5>
+            <span class="font-bold">
+                Example 2:
+            </span>
+            
+            The code returns an error because we are accessing the let variable outside the function block.
+        </h5>
+        <code>
+          
+            function f() { <br>
+                if (true) {<br>
+                    let b = 9<br>
+            
+                    // It prints 9<br>
+                    console.log(b);<br>
+                }<br>
+            
+                // It gives error as it defined in if block<br>
+                console.log(b);<br>
+            }<br>
+            f()<br>
+            
+        </code>
+
+        <h5>
+            <span class="font-bold">
+                Example 3:
+            </span>
+            
+            If users use the let variable before the declaration, it does not initialize with undefined just like a var variable, and returns an error.
+        </h5>
+        <code>
+          
+            console.log(a);<br>
+            let a = 10;<br>
+
+
+            
+        </code>
+    </div>
+
+
+    <div id="const">
+        <h5>
+            <span class="font-bold"> let:
+            </span> 
+            The const keyword has all the properties that are the same as the let keyword, except the user cannot update it.
+        </h5> 
+        
+        <h5>
+           <span class="font-bold">
+            Scope:
+           </span> 
+
+           block scoped: When users declare a const variable, they need to initialize it, otherwise, it returns an error. The user cannot update the const variable once it is declared. 
+        </h5>
+       
+        <h5>
+            <span class="font-bold">
+                Example 1:
+            </span>
+            If we change the value of the const variable, it returns an error. 
+        </h5>
+        <code>
+            const a = 10 <br>
+            function f() { <br>
+                a=9;<br>
+                console.log(a) <br>
+            }<br>
+            f();<br>
+           
+
+        </code>
+
+
+        
+    </div>
+    </section>
+    <section class="py-8 px-8">
+
+        <h1 class="font-extrabold text-4xl">
+            Use cases of null and undefined
+        </h1>
+
+        <p>
+            There are several differences between null and undefined, which are sometimes understood as the same. When we define a variable to undefined then we are trying to convey that the variable does not exist . When we define a variable to null then we are trying to convey that the variable is empty.
+        </p>
+        <div id="null">
+
+        <h5>
+            <span class="font-bold"> Null: 
+            </span> 
+            It is the intentional absence of the value. It is one of the primitive values of JavaScript. 
+        </h5> 
+        
+        <h5>
+           <span class="font-bold">
+            Type:
+           </span> 
+           Null: Object
+        </h5>
+       
+    </div>
+
+    <div id="undefined">
+
+        <h5>
+            <span class="font-bold"> Undefined: 
+            </span> 
+            It means the value does not exist in the compiler. It is the global object.
+        </h5> 
+        
+        <h5>
+           <span class="font-bold">
+            Type:
+           </span> 
+           Undefined: undefined
+        </h5>
+       
+       
+
+    </div>
+    <code>
+        null == undefined // true <br>
+        null === undefined // false<br>
+
+    </code>
+    <p>
+        It means null is equal to undefined but not identical.
+    </p>
+    </section>
+    <section class="py-8 px-8">
+
+        <h1 class="font-extrabold text-4xl">
+            REST API
+        </h1>
+
+        <p>
+            Representational State Transfer (REST) is an architectural style that defines a set of constraints to be used for creating web services. REST API is a way of accessing web services in a simple and flexible way without having any processing. REST technology is generally preferred to the more robust Simple Object Access Protocol (SOAP) technology because REST uses less bandwidth, simple and flexible making it more suitable for internet usage. It's used to fetch or give some information from a web service. All communication done via REST API uses only HTTP request. 
+        </p>
+        <img src="./images/What-is-REST-API.png" alt="" >
+       
+
+        <h5>
+            <span class="font-bold"> Working:
+            </span> 
+            A request is sent from client to server in the form of a web URL as HTTP GET or POST or PUT or DELETE request. After that, a response comes back from the server in the form of a resource which can be anything like HTML, XML, Image, or JSON. But now JSON is the most popular format being used in Web Services. 
+        </h5> 
+        
+        <p>
+            In HTTP there are five methods that are commonly used in a REST-based Architecture i.e., POST, GET, PUT, PATCH, and DELETE. These correspond to create, read, update, and delete (or CRUD) operations respectively. There are other methods which are less frequently used like OPTIONS and HEAD.  
+        </p>
+        <ul>
+            <li>
+                <span class="font-bold">
+                    GET: 
+                </span>
+                <p>
+                    The HTTP GET method is used to read (or retrieve) a representation of a resource. In the safe path, GET returns a representation in XML or JSON and an HTTP response code of 200 (OK). In an error case, it most often returns a 404 (NOT FOUND) or 400 (BAD REQUEST). 
+                </p>
+            </li>
+        </ul>
+    </section>
+   </main>
+</body>
+</html>
