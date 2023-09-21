@@ -32,7 +32,7 @@
 <body class="font_fam">
    
    <main>
-    <section class="py-8 px-8">
+    <section class="py-8 px-8 space-y-7">
 
         <h1 class="font-extrabold text-4xl">
             var, let and const keywords in JavaScript
@@ -41,7 +41,7 @@
         <p>
             In JavaScript, users can declare a variable using 3 keywords that are var, let, and const. In this article, we will see the differences between the var, let, and const keywords. We will discuss the scope about each keyword.
         </p>
-        <div id="var">
+        <div id="var " class="space-y-5">
 
         <h5>
             <span class="font-bold"> var:
@@ -63,7 +63,7 @@
             </span>
              Variable <strong>'a'</strong> is declared globally. So, the scope of the variable <strong>'a'</strong> is global, and it can be accessible everywhere in the program. 
         </h5>
-        <code>
+        <code class="text-blue-700">
             var a = 10 <br>
             function f() { <br>
                 console.log(a) <br>
@@ -81,7 +81,7 @@
             
              The variable <strong>'a'</strong> is declared inside the function. If the user tries to access it outside the function, it will display the error. Users can declare the 2 variables with the same name using the var keyword. Also, the user can reassign the value into the var variable. 
         </h5>
-        <code>
+        <code class="text-blue-700">
             function f() { <br>
 
                 // It can be accessible any where within this function <br>
@@ -104,7 +104,7 @@
             
             If users use the var variable before the declaration, it initializes with the undefined value. 
         </h5>
-        <code>
+        <code class="text-blue-700">
           
             console.log(a);<br>
             let a = 10;<br>
@@ -134,7 +134,7 @@
             </span>
              Variable <strong>'a'</strong> is declared globally. So, the scope of the variable <strong>'a'</strong> is global, and it can be accessible everywhere in the program. 
         </h5>
-        <code>
+        <code class="text-blue-700">
             var a = 10 <br>
             function f() { <br>
                 console.log(a) <br>
@@ -152,7 +152,7 @@
             
             The code returns an error because we are accessing the let variable outside the function block.
         </h5>
-        <code>
+        <code class="text-blue-700">
           
             function f() { <br>
                 if (true) {<br>
@@ -176,7 +176,7 @@
             
             If users use the let variable before the declaration, it does not initialize with undefined just like a var variable, and returns an error.
         </h5>
-        <code>
+        <code class="text-blue-700">
           
             console.log(a);<br>
             let a = 10;<br>
@@ -208,7 +208,7 @@
             </span>
             If we change the value of the const variable, it returns an error. 
         </h5>
-        <code>
+        <code class="text-blue-700" class="text-blue-700">
             const a = 10 <br>
             function f() { <br>
                 a=9;<br>
@@ -223,7 +223,7 @@
         
     </div>
     </section>
-    <section class="py-8 px-8">
+    <section class="py-8 px-8 space-y-7">
 
         <h1 class="font-extrabold text-4xl">
             Use cases of null and undefined
@@ -240,13 +240,6 @@
             It is the intentional absence of the value. It is one of the primitive values of JavaScript. 
         </h5> 
         
-        <h5>
-           <span class="font-bold">
-            Type:
-           </span> 
-           Null: Object
-        </h5>
-       
     </div>
 
     <div id="undefined">
@@ -257,17 +250,17 @@
             It means the value does not exist in the compiler. It is the global object.
         </h5> 
         
-        <h5>
-           <span class="font-bold">
-            Type:
-           </span> 
-           Undefined: undefined
-        </h5>
+        
        
-       
-
     </div>
-    <code>
+    <h5>
+        <span class="font-bold">
+         Type:
+        </span> 
+        Undefined: undefined
+        Null: Object
+     </h5>
+    <code class="text-blue-700">
         null == undefined // true <br>
         null === undefined // false<br>
 
@@ -276,7 +269,7 @@
         It means null is equal to undefined but not identical.
     </p>
     </section>
-    <section class="py-8 px-8">
+    <section class="py-8 px-8 space-y-7">
 
         <h1 class="font-extrabold text-4xl">
             REST API
@@ -285,25 +278,55 @@
         <p>
             Representational State Transfer (REST) is an architectural style that defines a set of constraints to be used for creating web services. REST API is a way of accessing web services in a simple and flexible way without having any processing. REST technology is generally preferred to the more robust Simple Object Access Protocol (SOAP) technology because REST uses less bandwidth, simple and flexible making it more suitable for internet usage. It's used to fetch or give some information from a web service. All communication done via REST API uses only HTTP request. 
         </p>
-        <img src="./images/What-is-REST-API.png" alt="" >
-       
-
-        <h5>
-            <span class="font-bold"> Working:
-            </span> 
-            A request is sent from client to server in the form of a web URL as HTTP GET or POST or PUT or DELETE request. After that, a response comes back from the server in the form of a resource which can be anything like HTML, XML, Image, or JSON. But now JSON is the most popular format being used in Web Services. 
-        </h5> 
+        <div class="flex justify-center">
+            <img src="./images/What-is-REST-API.png" alt="" >
+        </div>
         
         <p>
-            In HTTP there are five methods that are commonly used in a REST-based Architecture i.e., POST, GET, PUT, PATCH, and DELETE. These correspond to create, read, update, and delete (or CRUD) operations respectively. There are other methods which are less frequently used like OPTIONS and HEAD.  
+            <span class="font-bold">
+                 Working:
+            </span> 
+            A request is sent from client to server in the form of a web URL as HTTP GET or POST or PUT or DELETE request. After that, a response comes back from the server in the form of a resource which can be anything like HTML, XML, Image, or JSON. But now JSON is the most popular format being used in Web Services. In HTTP there are five methods that are commonly used in a REST-based Architecture i.e., POST, GET, PUT, PATCH, and DELETE. These correspond to create, read, update, and delete (or CRUD) operations respectively. There are other methods which are less frequently used like OPTIONS and HEAD.  
         </p>
-        <ul>
+     
+        <ul class="list-disc space-y-5 ml-4">
             <li>
-                <span class="font-bold">
-                    GET: 
-                </span>
                 <p>
+                    <span class="font-bold">
+                    GET: 
+                    </span>
+                
                     The HTTP GET method is used to read (or retrieve) a representation of a resource. In the safe path, GET returns a representation in XML or JSON and an HTTP response code of 200 (OK). In an error case, it most often returns a 404 (NOT FOUND) or 400 (BAD REQUEST). 
+                </p>
+            </li>
+
+            <li>
+                <p>
+                <span class="font-bold">
+                    PUT:  
+                </span>
+               
+                   It is used for updating the capabilities. However, PUT can also be used to create a resource in the case where the resource ID is chosen by the client instead of by the server. In other words, if the PUT is to a URI that contains the value of a non-existent resource ID. On successful update, return 200 (or 204 if not returning any content in the body) from a PUT. If using PUT for create, return HTTP status 201 on successful creation. PUT is not safe operation but it,s idempotent. 
+                </p>
+            </li>
+
+            <li>
+                <p>
+                <span class="font-bold">
+                    PATCH:   
+                </span>
+                
+                    It is used to modify capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource. This resembles PUT, but the body contains a set of instructions describing how a resource currently residing on the server should be modified to produce a new version. This means that the PATCH body should not just be a modified part of the resource, but in some kind of patch language like JSON Patch or XML Patch. PATCH is neither safe nor idempotent. 
+                </p>
+            </li>
+
+            <li>
+                <p>
+                <span class="font-bold">
+                    DELETE:    
+                </span>
+                
+                    It is used to delete a resource identified by a URI. On successful deletion, return HTTP status 200 (OK) along with a response body. 
                 </p>
             </li>
         </ul>

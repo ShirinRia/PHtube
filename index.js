@@ -201,8 +201,8 @@ const loader=isloading=>{
     }
 }
 
-const sort_view=()=>{
-
+const navigate=()=>{
+    window.location.href='blog.html';
 }
 main_load();
 // card_load();
