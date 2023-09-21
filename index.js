@@ -8,7 +8,7 @@ const main_load=async()=>{
     // console.log(categories);
     // console.log(categories[0].category_id);
 }
-
+let test;
 const display_button=(categories)=>{
 // cat =categories;
 // console.log(categories);
@@ -26,33 +26,45 @@ const display_button=(categories)=>{
             new_button.id=id;
             new_button.onclick = async()=>{
                 loader(true);
+                test=category.category_id;
                 const res=await fetch(`https://openapi.programming-hero.com/api/videos/category/${category.category_id}`)
                 const card_data=await res.json();
                 const cards=card_data.data;
                 console.log(cards);
                 card_container.textContent='';
-                add_card(cards);
+                add_card(cards,false);
             };
             button_div.appendChild(new_button);
         }
     )
 }
 
+const sortview=async()=>{
+console.log(test);
+loader(true);
+// test=category.category_id;
+const res=await fetch(`https://openapi.programming-hero.com/api/videos/category/${test}`)
+const card_data=await res.json();
+const cards=card_data.data;
+console.log(cards);
+card_container.textContent='';
+add_card(cards,true);
+
+}
 
 
-const add_card=(cards)=>
+const add_card=(cards,issort)=>
 {
     const len=cards.length;
+    if(issort){
+        cards.sort((a, b) => (parseFloat(a.others.views)*1000 < parseFloat(b.others.views)*1000) ? 1 :-1)
+    }
     
-    cards.sort((a, b) => (parseFloat(a.others.views)*1000 < parseFloat(b.others.views)*1000) ? 1 :-1)
     if(len>0){
         cards.forEach(
             
             card=>{
-                // const c=parseFloat(card.others.views)*1000;
-                // console.log(c);
-                // card_container.textContent='';
-                
+                console.log(card);
                 const new_card=document.createElement('div');
             new_card.innerHTML=
             `
